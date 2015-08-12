@@ -244,13 +244,13 @@ public abstract class AbstractInstrumentationMojo extends AbstractAndroidMojo
      * </pre>
      * or as e.g. -Dandroid.test.instrumentationArgs="key1 value1","key2 'value with spaces'"
      */
-    @Parameter( property = "android.test.instrumentationArgs")
+    @Parameter( property = "android.test.instrumentationArgs" )
     protected List<String> testInstrumentationArgs;
 
-    @Parameter( property = "android.test.includeMainSources", defaultValue = "true")
+    @Parameter( property = "android.test.includeMainSources", defaultValue = "true" )
     protected Boolean testIncludeMainSources;
 
-    @Parameter( property = "android.test.sourcesDirectory", defaultValue = "src/androidTest")
+    @Parameter( property = "android.test.sourcesDirectory", defaultValue = "src/androidTest" )
     protected String testSourcesDirectory;
 
     private boolean classesExists;
