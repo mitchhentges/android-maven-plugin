@@ -67,6 +67,14 @@ public class Test
      * Mirror of {@link com.simpligility.maven.plugins.android.AbstractInstrumentationMojo#testInstrumentationArgs}
      */
     private List<String> instrumentationArgs;
+    /**
+     * Mirror of {@link com.simpligility.maven.plugins.android.AbstractInstrumentationMojo#testIncludeMainSources}
+     */
+    private Boolean includeMainSources;
+    /**
+     * Mirror of {@link com.simpligility.maven.plugins.android.AbstractInstrumentationMojo#testSourcesDirectory}
+     */
+    private String sourcesDirectory;
 
     public String getSkip()
     {
@@ -136,5 +144,15 @@ public class Test
     public List<String> getInstrumentationArgs()
     {
         return instrumentationArgs;
+    }
+
+    public Boolean includeMainSources()
+    {
+        return includeMainSources;
+    }
+
+    public String getSourcesDirectory()
+    {
+        return sourcesDirectory;
     }
 }

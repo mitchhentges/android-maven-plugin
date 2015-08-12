@@ -8,3 +8,4 @@ target
 .classpath
 bin
 gen
+gen-external-apklibs

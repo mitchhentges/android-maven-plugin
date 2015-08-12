@@ -244,8 +244,14 @@ public abstract class AbstractInstrumentationMojo extends AbstractAndroidMojo
      * </pre>
      * or as e.g. -Dandroid.test.instrumentationArgs="key1 value1","key2 'value with spaces'"
      */
-    @Parameter( property = "android.test.instrumentationArgs" )
+    @Parameter( property = "android.test.instrumentationArgs")
     protected List<String> testInstrumentationArgs;
+
+    @Parameter( property = "android.test.includeMainSources", defaultValue = "true")
+    protected Boolean testIncludeMainSources;
+
+    @Parameter( property = "android.test.sourcesDirectory", defaultValue = "src/androidTest")
+    protected String testSourcesDirectory;
 
     private boolean classesExists;
     private boolean packagesExists;
@@ -265,6 +271,8 @@ public abstract class AbstractInstrumentationMojo extends AbstractAndroidMojo
     private Boolean parsedDebug;
     private Boolean parsedLogOnly;
     private Boolean parsedCreateReport;
+    private Boolean parsedTestIncludeMainSources;
+    private String parsedTestSourcesDirectory;
 
     private String packagesList;
 
@@ -526,6 +534,24 @@ public abstract class AbstractInstrumentationMojo extends AbstractAndroidMojo
             else
             {
                 parsedCreateReport = testCreateReport;
+            }
+
+            if ( test.includeMainSources() != null )
+            {
+                parsedTestIncludeMainSources = test.includeMainSources();
+            }
+            else
+            {
+                parsedTestIncludeMainSources = testIncludeMainSources;
+            }
+
+            if ( test.getSourcesDirectory() != null )
+            {
+                parsedTestSourcesDirectory = test.getSourcesDirectory();
+            }
+            else
+            {
+                parsedTestSourcesDirectory = testSourcesDirectory;
             }
 
             parsedInstrumentationArgs = InstrumentationArgumentParser.parse( test.getInstrumentationArgs() );
